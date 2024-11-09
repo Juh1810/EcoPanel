@@ -1,0 +1,180 @@
+<html>
+    <head>
+        <title>EcoPanel | Shop</title>
+        <link rel="shortcut icon" type = "x-icon" href="logo.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styleSheet.css">
+
+        <style type="text/css">
+          #layout{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            list-style-type: none;
+          }
+          .layout-item{
+            background-color: white;
+            border-radius: 8px;
+            width: 300px;
+            padding: 15px;
+            transition: transform 0.3s;
+            text-align: center;
+          }
+        .layout-item:hover{
+          transform: scale(1.05);
+        } 
+        .layout-item img {
+            width: 300px;
+            height: 300px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+
+          } 
+        .layout-item p {
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+            margin-top: 10px;
+            font-style:italic;
+        }
+        /* Responsive layout for smaller screens */
+        @media (max-width: 768px) {
+            #layout {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .layout-item {
+                width: 90%; /* Full width with some padding on mobile */
+            }
+        }
+        hr{
+            border: none;            
+            height: 2px;            
+            background-color: #817f7f;  
+            width: 80%;              
+            margin: 10px auto; 
+          }
+        </style>
+    </head>
+
+    <body>
+         <!--Navigation bar Section-->
+        <nav class="navbar" id="navv">
+        <nav class="navbar navbar-default navbar-fixed-top" id="navv">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <div class="logo-container">
+                        <img src="logo.png" alt="Logo" class="logo">
+                        <span class="brand-name" id="title">EcoPanel</span>
+                    </div>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav" id="navUl">
+                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+                        <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
+                        <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
+                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                        <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
+                        <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
+                        <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
+       
+        <div class="highlighted-section">
+            <div class="pageName">
+                <p>Shop</p><br/>
+            </div>
+        </div>
+
+        <!-- content of the page-->
+    
+          <!-- panels section -->
+         <h1 style="font-size: 40px;text-align: center;font-weight: 300;">Panels</h1>
+            <hr/>
+         <ul id="layout">
+          <li class="layout-item">
+            <img  src="panel1.jfif" alt=" solar panel product 1">
+            <p>Monocrystaline 330W</p>
+            <p style="text-align: center; color:darkcyan">$335</p>
+          </li>
+          <li class="layout-item"><img  src="panel2.jfif" alt=" solar panel product 2">
+            <p>Polycrystalline 330W</p>
+            <p style="text-align: center; color:darkcyan">$363</p>
+          </li>
+         <li class="layout-item"><img src="panel4.jfif" alt=" solar panel product 3">
+          <p>Monocrystaline 400W</p>
+          <p style="text-align: center; color:darkcyan">$550</p>
+        </li>
+         <li class="layout-item"><img src="panel5.jfif" alt=" solar panel product 4">
+          <p>Polycrystalline 400W</p>
+          <p style="text-align: center; color:darkcyan">$380</p>
+        </li>
+         
+        </ul><br/>
+
+        
+     
+        <br/>
+        <!-- solar energy devices section -->
+        <h1 style="font-size: 40px;text-align: center;font-weight: 300;">Solar Energy Devices</h1>
+        <hr/>
+        <div id="layout">
+            <table class="layout-item" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>
+                        <th class="layout-item"><img  src="device5.jfif" alt=" solar panel product 1"></th>
+                        <th class="layout-item"><img  src="device2.jfif" alt=" solar panel product 2"></th>
+                        <th class="layout-item"><img src="device3.jfif" alt=" solar panel product 3"></th>
+                        <th class="layout-item"><img src="device4.jfif" alt=" solar panel product 4"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Solar Panel Holder
+                          <p style="text-align: center; color:darkcyan">$30</p>
+                        </td>
+                        <td >Solar charge 30000mAh
+                          <p style="text-align: center; color:darkcyan">$65</p>
+                        </td>
+                        <td >Solar Charging Surveillance Camera
+                          <p style="text-align: center; color:darkcyan">$95</p>
+                        </td>
+                        <td >Solar Powered Light Tout
+                          <p style="text-align: center; color:darkcyan">$40</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    
+        <br>
+        <br>
+        <br>
+        <!--Footer Section-->
+        <footer class="container-fluid text-center">
+            <p>
+              <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon" style="height: 40px; width: 40px;"></a>
+              <a href="malito:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon" style="height: 40px; width: 40px;"></a>
+            </p>
+          </footer>
+    </body>
+</html>

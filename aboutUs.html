@@ -1,137 +1,156 @@
 <html>
-    <head>
-        <title>EcoPanel | About Us</title>
-        <link rel="shortcut icon" type="x-icon" href="logo.png">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="styleSheet.css">
 
-        <style>
-            #aboutUs p{
-                font-size: 25px;
-                text-align: center;
-                color: rgb(62, 64, 100);
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                
-            }
+<head>
+    <title>EcoPanel | About Us</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styleSheet.css">
 
-        .team{
+    <style type="text/css">
+        #aboutUs p {
+            font-size: 25px;
+            text-align: center;
+            color: rgb(62, 64, 100);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+        }
+
+        .team {
             width: 660px;
-            margin: auto ;
+            margin: auto;
             color: aliceblue;
             text-align: center;
-            font-family:'Times New Roman', Times, serif;
+            font-family: 'Times New Roman', Times, serif;
             font-size: 25px;
-            background-color: #524a41; 
+            background-color: #524a41;
             padding: 15px;
             border-radius: 10px;
             margin-top: 10px;
         }
-        .cards{width: 200px;
-             padding: 10px;
-            margin: 5px;}
 
-        .card-title{
+        .cards {
+            width: 200px;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .card-title {
             color: rgb(233, 213, 213);
             font-size: 18px;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
 
-        .email-container a{
-                color: rgb(0, 49, 155);
-                text-decoration: underline;
-                font-size: 18px;
-                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-                
-        }
-        </style>
-    </head>
+        .email-container a {
+            color: rgb(0, 0, 0);
+            text-decoration: underline;
+            font-size: 18px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
-    <body>
+        }
+    </style>
+</head>
+
+<body>
+    <!--Navigation bar-->
+    <nav class="navbar" id="navv">
         <nav class="navbar navbar-default navbar-fixed-top" id="navv">
             <div class="container-fluid">
-              <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>                        
-                </button>
-          
-                <a class="navbar-brand" id="title">EcoPanel</a>
-              </div>
-              <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav" id="navUl">
-                  <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
-                  <li><a href="#services" style="color: rgb(255, 248, 248);">Shop</a></li>
-                  <li><a href="#portfolio" style="color: rgb(255, 248, 248);">Contact Us</a></li>
-                  <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
-                  <li><a href="#contact" style="color: rgb(255, 248, 248);">Count</a></li>
-                  <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
-                  <li><a href="#contact" style="color: rgb(255, 248, 248);">Review</a></li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
 
+                    <div class="logo-container">
+                        <img src="logo.png" alt="Logo" class="logo">
+                        <span class="brand-name" id="title">EcoPanel</span>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav" id="navUl">
+                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+                        <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
+                        <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
+                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                        <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
+                        <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
+                        <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
         <div class="highlighted-section">
             <div class="pageName">
-                <p>About Us</p><br/>
+                <p>About Us</p><br />
             </div>
         </div>
-        <br/>
+        <br />
 
         <div class="container-fluid" id="aboutUs">
-        <p>
-                            <em><b>Welcome to our wonderful website! </b></em> 
-                            <br/> Our website is made to help you in your journey switching to green
-                             solar energy, we aim to facilitate the process of selling panels directly from our website to you without the need for an intermediary.
-        </p>
-    </div>
-    <br/>
-    <div class="email-container text-center">
-        <a href="malito:ecopanel.web@gmail.com">ecopanel.web@gmail.com</a>
-    </div>
-    <br/>
+            <p>
+                <em><b>Welcome to our wonderful website! </b></em>
+                <br /> Our website is made to help you in your journey switching to green
+                solar energy, we aim to facilitate the process of selling panels directly from our website to you
+                without the need for an intermediary.
+            </p>
+        </div>
+        <br />
+        <div class="email-container text-center">
+            <a href="malito:ecopanel.web@gmail.com">ecopanel.web@gmail.com</a>
+        </div>
+        <br />
 
-    <div class="team container-fluid text-center">
-        <h2>EcoPanel Team</h2>
-        <div class="row">
-            <div class="col-md-4 cards" >
-                <div>
-                    <img class="card-img-top" src="j.jpg" alt="member card" width="150px" height="150px">
-                    <div class="card-body">
-                        <h5 class="card-title">Juhaina Al Subhi</h5>
+        <div class="team container-fluid text-center">
+            <h2>EcoPanel Team</h2>
+            <div class="row">
+                <div class="col-md-4 cards">
+                    <div>
+                        <img class="card-img-top" src="j.jpg" alt="member card" width="150px" height="150px">
+                        <div class="card-body">
+                            <h5 class="card-title">Juhaina Al Subhi</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 cards" >
-                <div>
-                    <img class="card-img-top" src="r.jpg" alt="team card" width="150px" height="150px">
-                    <div class="card-body">
-                        <h5 class="card-title">Rayan Al Toqi</h5>
+                <div class="col-md-4 cards">
+                    <div>
+                        <img class="card-img-top" src="r.jpg" alt="team card" width="150px" height="150px">
+                        <div class="card-body">
+                            <h5 class="card-title">Rayan Al Toqi</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 cards" >
-                <div>
-                    <img class="card-img-top" src="k.jpg" alt="team card" width="150px" height="150px">
-                    <div class="card-body">
-                        <h5 class="card-title">Khaloud Al Hosni</h5>
+                <div class="col-md-4 cards">
+                    <div>
+                        <img class="card-img-top" src="k.jpg" alt="team card" width="150px" height="150px">
+                        <div class="card-body">
+                            <h5 class="card-title">Khaloud Al Hosni</h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!--Footer-->
+        <div class="footer">
+            <footer class="container-fluid text-center">
+                <p>
+                    <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon"
+                            style="height: 40px; width: 40px;"></a>
+                    <a href="malito:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon"
+                            style="height: 40px; width: 40px;"></a>
+                </p>
+            </footer>
 
-    <div class="footer">
-        <footer class="container-fluid text-center">
-            <p>
-              <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon" style="height: 40px; width: 40px;"></a>
-              <a href="malito:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon" style="height: 40px; width: 40px;"></a>
-            </p>
-          </footer>
+        </div>
+</body>
 
-    </div>
-    </body>
 </html>

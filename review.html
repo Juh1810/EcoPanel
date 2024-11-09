@@ -1,0 +1,353 @@
+<html>
+    <head>
+        <title>EcoPanel | Review </title>
+        <link rel="shortcut icon" type = "x-icon" href="Website logo1.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styleSheet.css">
+        <link rel="shortcut icon" href="commentIcon.png"> 
+        <!-- using font awsome-->
+        <meta name="viewport" content="width=device-width, initial=1.0"> 
+         
+        <style>
+            *{
+                margin: 0px;
+                padding: 0px;
+                box-sizing: border-box;
+            }
+            a{ 
+               text-decoration: none;
+
+            }
+            .commentHeading{
+                letter-spacing: 1px;
+                margin: 30px 0px;
+                padding: 10px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .commentHeading h1{
+                font-size: 2.2rem;
+                font-weight: 500;
+                background-color:navy;
+                color: #ffffff;
+                padding: 20px 20px;
+            }
+            .commentHeading span{
+                font-size: 1.3rem;
+                color:navy;
+                margin-bottom: 10px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+            .comments-container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+            .commentBox{
+                width: 600px;
+                box-shadow: 2px 2px 30px rgba(0,0,0,1);
+                background-color: aliceblue;
+                padding:20px;
+                margin: 15px;
+                cursor:pointer;
+            }
+            .profileImg{
+                width:50;
+                height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-right: 10px;
+            }
+            .profileImg img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            .profile{ 
+                display: flex;
+                align-items: center;
+            }
+            .userName{
+                display:flex;
+                flex-direction: column;
+            }
+            .userName strong{
+                color: #3d3d3d;
+                font-size: 1.1rem;
+                letter-spacing: 0.5px;
+            }
+            .userName span{
+                color:darkblue;
+                font-size: 0.8rem;
+            }
+            .review {
+                color: #f9d71c;
+            }
+            .boxTop{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .client p{
+                font-size: 0.9rem;
+                color:#4b4b4b;
+            }
+            .commentBox:hover{
+                transform: translateY(-10px);
+                transition: all ease 0.3s;
+            }
+            ::selection{
+                color: #ffffff;
+                background-color: #939393;
+            }
+            textarea {
+            width: 300px;
+            height: 150px;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        /* Styling for the heading */
+.text-center p {
+    font-size: 30px;
+    font-weight: 600;
+    color: #333; 
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styling for the textarea */
+.text-center textarea {
+    display: block;
+    width: 80%;           /* Adjust width as needed */
+    height: 150px;        /* Adjust height for more space */
+    margin: 0 auto;       /* Center the textarea */
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #666;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    resize: none;         /* Prevent resizing */
+}
+
+/* Styling for the button */
+.text-center .btn {
+    display: block;
+    width: 50%;
+    margin: 20px auto;   /* Center the button and add spacing */
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.text-center .btn:hover {
+    background-color: green;
+}
+
+        </style>
+    </head>
+
+    <body>
+         <!--Navigation bar Section-->
+         <nav class="navbar" id="navv">
+            <nav class="navbar navbar-default navbar-fixed-top" id="navv">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+    
+                        <div class="logo-container">
+                            <img src="logo.png" alt="Logo" class="logo">
+                            <span class="brand-name" id="title">EcoPanel</span>
+                        </div>
+    
+                    </div>
+    
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav" id="navUl">
+                            <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+                            <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
+                            <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
+                            <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                            <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
+                            <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
+                            <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </nav>
+
+        <div class="highlighted-section">
+            <div class="pageName">
+                <p>Review</p><br/>
+            </div>
+        </div>
+
+        <!-- Content Section -->
+         <!-- user comment -->
+         <form  method="POST" action="https://api.web3forms.com/submit">
+
+            <input type="hidden" name="access_key" value="48bc48de-a916-4472-8b06-2a989c70f44a">
+
+            <div class=" text-center">
+            <p style="font-size: 40px; font-weight: 600;">Let us know what you think!</p><br/>
+            <textarea name="comment" id="comment" class=" text-center" placeholder="leave your comment here!" required></textarea><br/>
+            <input type="submit" value="Submit" class="btn btn-primary btn-outline-dark">
+            </div>
+         </form>
+
+         <!-- other users comments -->
+        <section id="commentSec">
+            <!-- heading section-->
+            <div class="commentHeading">
+                <span>Comments</span>
+                <h1>Clients Says</h1>
+            </div>
+
+            <!-- comments section-->
+            <div class="comments-container">
+                <!-- 1st comment-->
+                <div class="commentBox">
+                    <div class="boxTop">
+                        <div class="profile">
+                            <div class="profileImg">
+                                <img src="profile2.jfif"  alt="profile image">
+                            </div>    
+                            <div class="userName">
+                                <strong>Mohammed Al Tobi - Minister of Environment and Climate Affairs</strong>
+                                <span>@MohammedAlTobi</span>
+                            </div>
+                            
+                        </div>
+                        <div class="review">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- comments-->
+                     <div class="Client">
+                        <p>It was my pleasure to deal with a young Omani company that is a pioneer in the field of solar panels and alternative energy. The dealing was excellent and the quality is excellent. I recommend purchasing solar panels in order to contribute to preserving the environment and reducing harmful emissions into the atmosphere. May your efforts be blessed and always move forward.</p>
+                     </div>
+                </div>
+
+                <!-- 2nd comment-->
+                <div class="commentBox">
+                    <div class="boxTop">
+                        <div class="profile">
+                            <div class="profileImg">
+                                <img src="profile1.png" alt="profile image">
+                            </div>    
+                            <div class="userName">
+                                <strong>Ali </strong>
+                                <span>@ali_1</span>
+                            </div>
+                            
+                        </div>
+                        <div class="review">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i> <!-- empty star-->
+                        </div>
+                    </div>
+                    <!-- comments-->
+                     <div class="Client">
+                        <p>The most perfect products and quality ever! go and try it.It is so useful to reduce energy consuming from non-renewable resourses.</p>
+                     </div>
+                </div>
+
+                <!-- 3rd comment-->
+                <div class="commentBox">
+                    <div class="boxTop">
+                        <div class="profile">
+                            <div class="profileImg">
+                                <img src="profile1.png" alt="profile image">
+                            </div>    
+                            <div class="userName">
+                                <strong>Ahmed</strong>
+                                <span>@ahmed33</span>
+                            </div>
+                            
+                        </div>
+                        <div class="review">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- comments-->
+                     <div class="Client">
+                    <p> It was realy intersting experince, it is good practice to stop relaing on non-renewable energy sources. Highly recomended</p>
+                     </div>
+                </div>
+
+                <!-- 4th comment-->
+                <div class="commentBox">
+                    <div class="boxTop">
+                        <div class="profile">
+                            <div class="profileImg">
+                                <img src="profile1.png" alt="profile image">
+                            </div>    
+                            <div class="userName">
+                                <strong>Hassan</strong>
+                                <span>@Hassan99</span>
+                            </div>
+                            
+                        </div>
+                        <div class="review">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <!-- comments-->
+                     <div class="Client">
+                        <p>Keep going the world needs this technologies noadays. Great products and easy to use.</p>
+                     </div>
+                </div>
+            </div>
+        </section>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!--Footer Section-->
+        <footer class="container-fluid text-center">
+            <p>
+              <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon" style="height: 40px; width: 40px;"></a>
+              <a href="malito:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon" style="height: 40px; width: 40px;"></a>
+            </p>
+          </footer>
+    </body>
+</html>

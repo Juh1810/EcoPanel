@@ -1,4 +1,4 @@
-body {
+body{
     background-color: #f9faf4;
   }
   
@@ -82,11 +82,25 @@ body {
     min-height:200px;
 }
 
-
-
 /* Hide the carousel text when the screen is less than 600 pixels wide */
 @media (max-width: 600px) {
   .carousel-caption {
     display: none; 
   }
 }
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.logo {
+  height: 40px; 
+  width: auto;  
+}
+
+.brand-name {
+  font-size: 1.5em; 
+}
+

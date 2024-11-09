@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--head section-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +11,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styleSheet.css">
-    <style>
+
+    <style type="text/css">
         #script {
             color: rgb(255, 255, 255);
             background-color: rgb(46, 100, 68);
@@ -18,87 +20,100 @@
         }
 
         .table {
-        width: 100%; /* Make table responsive */
-        margin: 20px 0; /* Add some margin for spacing */
-        
-    }
-    .td-text {
-        font-weight: bold;
-        font-size: 20px;
-        color: rgb(14, 100, 60);
-        padding: 10px; 
-        font-family: 'Times New Roman', Times, serif;
-    }
+            width: 100%;
+            /* Make table responsive */
+            margin: 20px 0;
+            /* Add some margin for spacing */
 
+        }
+
+        .td-text {
+            font-weight: bold;
+            font-size: 20px;
+            color: rgb(14, 100, 60);
+            padding: 10px;
+            font-family: 'Times New Roman', Times, serif;
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top" id="navv">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" id="title">EcoPanel</a>
+    <!-- Navigation bar-->
+    <nav class="navbar" id="navv">
+        <nav class="navbar navbar-default navbar-fixed-top" id="navv">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <div class="logo-container">
+                        <img src="logo.png" alt="Logo" class="logo">
+                        <span class="brand-name" id="title">EcoPanel</span>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav" id="navUl">
+                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+                        <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
+                        <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
+                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                        <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
+                        <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
+                        <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav" id="navUl">
-                    <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
-                    <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
-                    <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
-                    <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
-                    <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
-                    <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
-                    <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
-                </ul>
-            </div>
-        </div>
+        </nav>
     </nav>
+        <div class="carousel-inner">
 
-
-    <div class="carousel-inner">
-        
             <img src="solar.jpg" alt="Image" style="opacity: 0.6; width:100%;" height="360px">
-            
-                <div class="carousel-inner centered-text"><p>EcoPanel</p></div>
-           
-    
-    </div>
-    <div class="container text-center">
-        <h3 id="script">Your Path to Green Energy</h3><br>
-        <table class="table table-bordered text-center" cellspacing="0" cellpadding="5">
-          <thead>
-              <tr>
-                  <th><img src="pic1.jpg" style="width: 250px; height: 180px;" alt="Clean Energy Source"></th>
-                  <th><img src="pic2.jpg" style="width: 250px; height: 180px;" alt="Renewable Energy Source"></th>
-                  <th><img src="pic3.jpg" style="width: 250px; height: 180px;" alt="Economical Solution"></th>
-                  <th><img src="pic4.jpg" style="width: 250px; height: 180px;" alt="Technology Development"></th>
-              </tr>
-          </thead>
-          <tbody>
-              <tr>
-                  <td class="td-text">Clean</td>
-                  <td class="td-text">Renewable</td>
-                  <td class="td-text">Economical</td>
-                  <td class="td-text">Technology Development</td>
-              </tr>
-          </tbody>
-      </table>
-        </div> 
-    </div>
 
-    <div class="footer">
-    <footer class="text-center">
-        <p>
-            <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon"
-                    style="height: 40px; width: 40px;"></a>
-            <a href="malito:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon" style="height: 40px; width: 40px;"></a>
-        </p>
-    </footer>
-    </div>
+            <div class="carousel-inner centered-text">
+                <p>EcoPanel</p>
+            </div>
+
+
+        </div>
+        
+        <div class="container text-center">
+            <h3 id="script">Your Path to Green Energy</h3><br>
+            <table class="table table-bordered text-center" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>
+                        <th><img src="pic1.jpg" style="width: 250px; height: 180px;" alt="Clean Energy Source"></th>
+                        <th><img src="pic2.jpg" style="width: 250px; height: 180px;" alt="Renewable Energy Source"></th>
+                        <th><img src="pic3.jpg" style="width: 250px; height: 180px;" alt="Economical Solution"></th>
+                        <th><img src="pic4.jpg" style="width: 250px; height: 180px;" alt="Technology Development"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-text">Clean</td>
+                        <td class="td-text">Renewable</td>
+                        <td class="td-text">Economical</td>
+                        <td class="td-text">Technology Development</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <br/><br/><br/><br/>
+        <!--Footer-->
+        <div class="footer">
+            <footer class="text-center">
+                <p>
+                    <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon"
+                            style="height: 40px; width: 40px;"></a>
+                    <a href="malito:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon"
+                            style="height: 40px; width: 40px;"></a>
+                </p>
+            </footer>
+        </div>
 </body>
 
 </html>

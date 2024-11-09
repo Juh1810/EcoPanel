@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>EcoPanel | Count Panel</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styleSheet.css">
+
+    <style type="text/css">
+        .page-intro {
+            font-size: 24px;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .form-section {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            color: #007bff;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            flex-direction: column;
+        }
+
+        .input-container input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-label {
+            font-size: 18px;
+            color: #555;
+            text-align: center;
+        }
+
+        .btn-primary {
+            display: block;
+            width: 50%;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: green;
+        }
+    </style>
+</head>
+
+
+<body class="body">
+    <!--Navigation bar-->
+    <nav class="navbar" id="navv">
+        <nav class="navbar navbar-default navbar-fixed-top" id="navv">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <div class="logo-container">
+                        <img src="logo.png" alt="Logo" class="logo">
+                        <span class="brand-name" id="title">EcoPanel</span>
+                    </div>
+
+                </div>
+
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav" id="navUl">
+                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+                        <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
+                        <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
+                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                        <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
+                        <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
+                        <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
+    
+    <div class="highlighted-section">
+        <div class="pageName">
+            <p>Count Panel</p><br />
+        </div>
+    </div>
+    <br />
+   
+    <p class="page-intro">
+        Enter the required information to get estimation of number of panels you need!</p>
+
+    <!-- Form Input Sectin-->
+    <form class="form-section">
+
+        <h2>Number of Panels Needed</h2>
+
+        <!--Daily Energy needs-->
+        <div class="input-container">
+            <label for="dailyEnergy" class="form-label"> Daily Energy needs</label>
+            <input type="text" id="dailyEnergy" name="DailyEnergy" placeholder="Enter your daily energy needs">
+        </div>
+
+        <!--Daily output Per Panel-->
+        <div class="input-container">
+            <label for="outputPerPanel" class="form-label"> Daily output Per Panel</label>
+            <input type="number" id="outputPerPanel" name="DailypanelOutput" placeholder="Enter daily output per panel">
+        </div>
+
+        <!-- Submit button-->
+        <button type="submit" class="btn-primary">Submit</button>
+
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <!--Footer-->
+    <div class="footer">
+        <footer class=" text-center">
+            <p>
+                <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon"
+                        style="height: 40px; width: 40px;"></a>
+                <a href="malito:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon"
+                        style="height: 40px; width: 40px;"></a>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
