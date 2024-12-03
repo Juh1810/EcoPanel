@@ -6,61 +6,134 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="styleSheet.css">
+        
 
-        <style type="text/css">
-          #layout{
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
-            list-style-type: none;
+        <style>
+          #layout {
+              display: flex;
+              justify-content: center;
+              flex-wrap: wrap;
+              gap: 20px;
+              padding: 20px;
+              list-style-type: none;
           }
-          .layout-item{
-            background-color: white;
-            border-radius: 8px;
-            width: 300px;
-            padding: 15px;
-            transition: transform 0.3s;
-            text-align: center;
+          .layout-item {
+              background-color: white;
+              border-radius: 8px;
+              width: 300px;
+              padding: 15px;
+              transition: transform 0.3s;
+              text-align: center;
           }
-        .layout-item:hover{
-          transform: scale(1.05);
-        } 
-        .layout-item img {
-            width: 300px;
-            height: 300px;
-            border-radius: 8px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            object-fit: cover;
+          .layout-item:hover {
+              transform: scale(1.05);
+          }
+          .layout-item img {
+              width: 300px;
+              height: 300px;
+              border-radius: 8px;
+              box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+              object-fit: cover;
+          }
+          .layout-item p {
+              font-size: 20px;
+              font-weight: 500;
+              color: #333;
+              margin-top: 10px;
+              font-style: italic;
+          }
+          hr {
+              border: none;
+              height: 2px;
+              background-color: #817f7f;
+              width: 80%;
+              margin: 10px auto;
+          }
+          button {
+              display: block;
+              width: 50%;
+              margin: 20px auto;
+              padding: 10px;
+              font-size: 15px;
+              font-weight: bold;
+              border-radius: 5px;
+              background-color: #007bff;
+              color: white;
+              border: none;
+              transition: background-color 0.3s ease;
+              text-align: center;
+          }
+          button:hover {
+              background-color: #0056b3;
+              transform: scale(1.05);
+          }
+          #search-bar-container {
+              display: flex;
+              justify-content: center;
+              margin: 20px auto;
+          }
+          #search-bar {
+              width: 50%;
+              padding: 10px;
+              font-size: 16px;
+              border: 2px solid #007bff;
+              border-radius: 8px;
+          }
 
-          } 
-        .layout-item p {
-            font-size: 20px;
-            font-weight: 500;
-            color: #333;
-            margin-top: 10px;
-            font-style:italic;
+          #search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+#search-bar {
+  width: 200px;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#search-button {
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+  background-color: #0056b3;
+}
+
+      </style>
+      
+       <script>
+        let cart = [];
+
+        // Add to Cart function
+        function addToCart(itemName, price) {
+        // Check if the item already exists in the cart
+        const existingItem = cart.find(item => item.name === itemName);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ name: itemName, price: price, quantity: 1 });
         }
-        /* Responsive layout for smaller screens */
-        @media (max-width: 768px) {
-            #layout {
-                flex-direction: column;
-                align-items: center;
-            }
+        alert(`Added ${itemName} to cart.`);
+        updateCartStorage();
+}
 
-            .layout-item {
-                width: 90%; /* Full width with some padding on mobile */
-            }
+      // Save cart data to local storage
+      function updateCartStorage() {
+            localStorage.setItem('cart', JSON.stringify(cart));
         }
-        hr{
-            border: none;            
-            height: 2px;            
-            background-color: #817f7f;  
-            width: 80%;              
-            margin: 10px auto; 
-          }
-        </style>
+      </script>
     </head>
 
     <body>
@@ -85,13 +158,16 @@
 
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav" id="navUl">
-                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
-                        <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
-                        <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
-                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
-                        <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
-                        <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
-                        <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+                      <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+                      <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
+                      <li><a href="billGeneration.html" style="color: rgb(255, 248, 248);">bill</a></li>
+                      <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
+                      <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                      <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
+                      <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
+                      <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+                      <li><a href="Questionnaire.html" style="color: rgb(255, 248, 248);">Questionnaire</a></li>
+                      <li><a href="funpage.html" style="color: rgb(255, 248, 248);">fun</a></li>
                     </ul>
                 </div>
             </div>
@@ -114,18 +190,22 @@
             <img  src="panel1.jfif" alt=" solar panel product 1">
             <p>Monocrystaline 330W</p>
             <p style="text-align: center; color:darkcyan">$335</p>
+            <button onclick="addToCart('Monocrystalline 330W', 335)">Add to Cart</button>
           </li>
           <li class="layout-item"><img  src="panel2.jfif" alt=" solar panel product 2">
             <p>Polycrystalline 330W</p>
             <p style="text-align: center; color:darkcyan">$363</p>
+            <button onclick="addToCart('Polycrystalline 330W', 363)">Add to Cart</button>
           </li>
          <li class="layout-item"><img src="panel4.jfif" alt=" solar panel product 3">
           <p>Monocrystaline 400W</p>
           <p style="text-align: center; color:darkcyan">$550</p>
+          <button onclick="addToCart('Monocrystaline 400W', 550)">Add to Cart</button>
         </li>
          <li class="layout-item"><img src="panel5.jfif" alt=" solar panel product 4">
           <p>Polycrystalline 400W</p>
           <p style="text-align: center; color:darkcyan">$380</p>
+          <button onclick="addToCart('Polycrystalline 400W', 380)">Add to Cart</button>
         </li>
          
         </ul><br/>
@@ -137,7 +217,7 @@
         <h1 style="font-size: 40px;text-align: center;font-weight: 300;">Solar Energy Devices</h1>
         <hr/>
         <div id="layout">
-            <table class="layout-item" cellspacing="0" cellpadding="5">
+            <table class="layout-item" cellspacing="0" cellpadding="5" id="tableStyle">
                 <thead>
                     <tr>
                         <th class="layout-item"><img  src="device5.jfif" alt=" solar panel product 1"></th>
@@ -150,22 +230,104 @@
                     <tr>
                         <td>Solar Panel Holder
                           <p style="text-align: center; color:darkcyan">$30</p>
+                          <button onclick="addToCart('Solar Panel Holder', 30)">Add to Cart</button>
                         </td>
                         <td >Solar charge 30000mAh
                           <p style="text-align: center; color:darkcyan">$65</p>
+                          <button onclick="addToCart('Solar charge 30000mAh', 65)">Add to Cart</button>
                         </td>
                         <td >Solar Charging Surveillance Camera
                           <p style="text-align: center; color:darkcyan">$95</p>
+                          <button onclick="addToCart('Solar Charging Surveillance Camera', 95)">Add to Cart</button>
                         </td>
                         <td >Solar Powered Light Tout
                           <p style="text-align: center; color:darkcyan">$40</p>
+                          <button onclick="addToCart('Solar Powered Light Tout', 40)">Add to Cart</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
+        <!-- javascript code to connect this page with billGeneration page -->
+        <script>
+          // Add item to localStorage for the bill
+          function addToCart(itemName, itemPrice) {
+              // Retrieve existing cart items from localStorage or create a new array
+              const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+              // Add the selected item to the cart
+              cart.push({ name: itemName, price: itemPrice, quantity: 1 });
+  
+              // Store the updated cart back in localStorage
+              localStorage.setItem('cart', JSON.stringify(cart));
+  
+              alert(`${itemName} added to the bill!`);
+          }
+      </script>
+      
+      <script>
+          // Constructor for Panel object
+      function Panel(name, wattage, price) {
+      this.name = name;      // Panel name
+      this.wattage = wattage; // Wattage
+      this.price = price;    // Price
+    }
+
+    // Constructor for Device object
+        function Device(name, description, price) {
+        this.name = name;          // Device name
+        this.description = description; // Short description
+        this.price = price;        // Price
+    }
+
+      // Initialize arrays
+    const panels = [
+    new Panel("Monocrystalline 330W", "330W", 335),
+    new Panel("Polycrystalline 330W", "330W", 363),
+    new Panel("Monocrystalline 400W", "400W", 550),
+    new Panel("Polycrystalline 400W", "400W", 380)
+    ];
+
+    const devices = [
+    new Device("Solar Panel Holder", "Holds solar panels securely", 30),
+    new Device("Solar Charge 30000mAh", "High-capacity solar power bank", 65),
+    new Device("Solar Charging Surveillance Camera", "Camera with solar charging", 95),
+    new Device("Solar Powered Light Tout", "Outdoor solar-powered light", 40)
+    ];
+
+      </script>
     
+      <!-- Panels Table -->
+<h2>Panels</h2>
+<table id="panelsTable" border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Wattage</th>
+            <th>Price ($)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data will be dynamically added here -->
+    </tbody>
+</table>
+
+<!-- Devices Table -->
+<h2>Solar Energy Devices</h2>
+<table id="devicesTable" border ="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price ($)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Data will be dynamically added here -->
+    </tbody>
+</table>
+
         <br>
         <br>
         <br>
@@ -173,7 +335,7 @@
         <footer class="container-fluid text-center">
             <p>
               <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon" style="height: 40px; width: 40px;"></a>
-              <a href="malito:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon" style="height: 40px; width: 40px;"></a>
+              <a href="mailto:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon" style="height: 40px; width: 40px;"></a>
             </p>
           </footer>
     </body>
