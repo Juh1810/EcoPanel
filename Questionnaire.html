@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--head section-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EcoPanel | Questionnaire</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styleSheet.css">
+
+    <style type="text/css">
+        #topic{
+            color: rgb(160, 9, 94);
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 700;
+        }
+
+        form{
+            color: rgb(31, 28, 93);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+    <!--end of style code-->
+
+</head>
+
+<body>
+    <!-- Navigation bar-->
+    <nav class="navbar" id="navv">
+        <nav class="navbar navbar-default navbar-fixed-top" id="navv">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <div class="logo-container">
+                        <img src="logo.png" alt="Logo" class="logo">
+                        <span class="brand-name" id="title">EcoPanel</span>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav" id="navUl">
+                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+                        <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
+                        <li><a href="billGeneration.html" style="color: rgb(255, 248, 248);">bill</a></li>
+                        <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
+                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                        <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
+                        <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
+                        <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+                        <li><a href="Questionnaire.html" style="color: rgb(255, 248, 248);">Questionnaire</a></li>
+                        <li><a href="funpage.html" style="color: rgb(255, 248, 248);">fun</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </nav>
+    <!--end of navigation bar code-->    
+
+
+    <!--=================================================================================================-->
+    <br/>
+    <div class="container text-center">
+        <h2 class="display-2" id="topic">Questionnaire</h2>
+        <!--form-->
+        <div class="container text-left">
+        <form name="f1" action="https://api.web3forms.com/submit" onsubmit="return ValidationForm()" method="post">
+            <input type="hidden" name="access_key" value="48bc48de-a916-4472-8b06-2a989c70f44a">
+
+            <!--fullName, text box-->
+            <label name="fullName" class="label_text">Full name : &nbsp; &nbsp;  &nbsp; &nbsp; 
+            <input type="text" name="fullName" required> </label> <br/>
+
+            <!--email, text box-->
+            <label name="email" class="label_text">Email:  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp; 
+                &nbsp; &nbsp; <input type="text" name="email" required> </label> <br/>
+            
+            <!--phone, text box-->
+            <label name="phone" class="label_text"> Phone Number: <input type="text" name="phone" required> </label><br/>
+            
+            <!--age, number, required-->
+            <label>Age : &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp; &nbsp;
+                &nbsp; &nbsp; <input type="number" name="age" min="0" required></label> <br/>
+
+            <!--gender, radio button-->
+            <label>Gender: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <label name="gender" class="label_text"> <input type="radio" name="gender" value="male" checked="checked"> Male</label>
+            <label name="gender" class="label_text"> &nbsp; &nbsp; <input type="radio" name="gender" value="female"> Female</label>
+            </label> <br/>
+            
+            <!--rate, checkbox-->
+            <h5>What did you like about our service? </h5>
+            <label name="rating" class="label_text"> <input type="checkbox" name="rating" value="Customer service"> Customer service</label>
+            <label name="rating" class="label_text"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="checkbox" name="2" value="Fast Delivary"> Fast Delivary</label> <br/> 
+            <label name="rating" class="label_text"> <input type="checkbox" name="rating" value="products Quality"> products Quality</label>
+            <label name="rating" class="label_text"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="checkbox" name="rating" value="Ease of site use"> Ease of site use</label> <br/> 
+            <label name="rating" class="label_text"> <input type="checkbox" name="rating" value="Effectiveness of other services"> Effectiveness of other services</label> &nbsp; &nbsp;
+            <label name="rating" class="label_text"> <input type="checkbox" name="rating" value="None"> None</label> <br/>
+
+            <!--improvment suggestions, text area-->
+            <label>Other things to improve? <br/> <textarea name="Feedback" rows="2" cols="40"> </textarea> </label>
+            <p>_____________________________________</p>
+            <!--security, checkbox, required-->
+            <label style="color: rgb(122, 0, 0); font-family: 'Courier New', Courier, monospace;"><input type="checkbox" name="security" value="Secure" required> I am not a robot.</label> <br/> 
+            
+            <!--submit and reset buttons-->
+            <input type="submit" value="Send" name="Submit" class="btn btn-primary">
+            <input type="reset" value="Reset" name="Reset" class="btn btn-danger">
+        </form>
+    </div>
+        <br/>
+    </div>
+
+
+    <!--JavaScript-->
+    <script>
+        function ValidationForm(){
+            //define variables
+            let fullName = document.forms["f1"]["fullName"];    
+            let email = document.forms["f1"]["email"];
+            let phone = document.forms["f1"]["phone"];
+           
+            //check validation of user input
+            //full name must include first and last name, so it must include two words (one space char)
+            if (fullName.value.search(/\s/) < 0){ //check if user input include space
+                alert("Please enter both First and Last names."); //display alert message asking the user to re-enter full name
+                fullName.focus(); //set focus to fullName section
+                return false;} //return false
+
+            //an email must include @
+            //index of @ is not a negative number ==> character must be found to be valid
+            if(email.value.indexOf("@", 0) < 0) { //check if input include @
+                alert("Please enter a valid e-mail address."); //display alert message
+                email.focus(); //set focus to email section
+                return false;} //return false
+
+            //email must include a period
+            if(email.value.indexOf(".", 0) < 0) { //check if input of email includes period char
+                alert("Please enter a valid e-mail address."); //display alert message
+                email.focus(); //set focus to email section
+                return false;} //return false
+            
+            //phone number must include 8 digits
+            if(phone.value.search(/\d{8}/)==-1) { //make sure user enters 8 digits as phone number
+                alert("Incorrect number form, Please enter your phone number again."); //display alert message
+                phone.focus(); //set focus to phone section
+                return false;} //return false
+
+            return true; //return true otherwise, if all user inputs are valid
+        }
+    </script>
+    <!--end of JavaScript code-->
+
+     <!--=================================================================================================-->
+
+
+
+    <!--Footer-->
+        <br/><br/><br/><br/>
+        <div class="footer">
+            <footer class="text-center">
+                <p>
+                    <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon"
+                        style="height: 40px; width: 40px;"></a>
+                    <a href="mailto:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon"
+                            style="height: 40px; width: 40px;"></a>
+                </p>
+            </footer>
+        </div>
+    <!--end of footer code-->
+</body>
+</html>

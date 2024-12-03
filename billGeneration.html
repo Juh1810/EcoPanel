@@ -1,0 +1,214 @@
+<html>
+<head>
+  <title>EcoPanel | Bill Generation</title>
+  <link rel="shortcut icon" type="x-icon" href="logo.png">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styleSheet.css">
+
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        /*padding-top: 70px;*/
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .bill-container {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: darkgreen;
+    }
+    table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .total-row {
+            font-weight: bold;
+        }
+</style>
+<script>
+// Function to calculate and display the bill
+function generateBill() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const billTableBody = document.getElementById('billTableBody');
+    let total = 0;
+
+    // Clear previous table rows
+    billTableBody.innerHTML = '';
+
+    // Populate table rows
+    cart.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const row = `
+            <tr>
+                <td>${item.name}</td>
+                <td>${item.quantity}</td>
+                <td>$${item.price}</td>
+                <td>$${subtotal}</td>
+            </tr>
+        `;
+        billTableBody.innerHTML += row;
+    });
+
+    // Apply discount if total > $500
+    let discount = 0;
+    if (total > 500) {
+        discount = total * 0.25;
+    }
+
+    const finalTotal = total - discount;
+
+    // Update total and discount
+    document.getElementById('total').innerText = `$${total}`;
+    document.getElementById('discount').innerText = `$${discount}`;
+    document.getElementById('finalTotal').innerText = `$${finalTotal}`;
+}
+</script>
+
+</head>
+
+<body>
+
+    <!--Navigation bar Section-->
+  
+    <nav class="navbar" id="navv">
+      <nav class="navbar navbar-default navbar-fixed-top" id="navv">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+  
+            <div class="logo-container">
+              <img src="logo.png" alt="Logo" class="logo">
+              <span class="brand-name" id="title">EcoPanel</span>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav" id="navUl">
+              <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+              <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
+              <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
+              <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+              <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
+              <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
+              <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+  
+      <div class="highlighted-section">
+        <div class="pageName">
+          <p>Bill Generation</p><br />
+        </div>
+      </div>
+  
+      <!-- page content -->
+          
+          <div class="bill-container">
+              <form id="billForm">
+                  <!-- Take the needed information from the user -->
+                  <div class="input-group">
+                      <label for="customerName">Name:</label>
+                      <input type="name" id="customerName" class="form-control" placeholder="Enter your name:" required>
+                  </div>
+  
+                  <div class="input-group">
+                      <label for="customerAge">Customer Age:</label>
+                      <input type="number" id="customerAge" class="form-control" placeholder="Enter customer age" required>
+                  </div>
+  
+                  
+                  <div class="input-group">
+                      <label for="itemQuantity">Quantity:</label>
+                      <input type="number" id="itemQuantity" class="form-control" placeholder="Enter quantity" required>
+                  </div>
+                  
+                  <button type="button" class="btn btn-primary" onclick="calculateBill()">Calculate Bill</button>
+              </form>
+  
+              <!-- Bill generation -->
+              <div class="container">
+                  <h2>Generated Bill</h2>
+                  <table id="billTable" class="table table-striped">
+                      <thead>
+                          <tr>
+                              <th>Item Name</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                              <th>Subtotal</th>
+                          </tr>
+                      </thead>
+                      <tbody></tbody>
+                  </table>
+                  <p id="totalCost"></p>
+              </div>
+          <!-- ----------------------------------------------------------------->
+             
+          <div onload="generateBill()">
+              <div class="bill-container">
+                  <h2>Bill Summary</h2>
+                  <table class="bill-table">
+                      <thead>
+                          <tr>
+                              <th>Product</th>
+                              <th>Quantity</th>
+                              <th>Price</th>
+                              <th>Subtotal</th>
+                          </tr>
+                      </thead>
+                      <tbody id="billTableBody"></tbody>
+                  </table>
+                  <p>Total: <span id="total"></span></p>
+                  <p>Discount: <span id="discount"></span></p>
+                  <p>Final Total: <span id="finalTotal"></span></p>
+              </div>
+  
+  
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+    <!--Footer Section-->
+    <div class="footer">
+      <footer class="container-fluid text-center">
+        <p>
+          <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon"
+              style="height: 40px; width: 40px;"></a>
+          <a href="mailto:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon"
+              style="height: 40px; width: 40px;"></a>
+        </p>
+      </footer>
+    </div>
+</body>
+
+</html>
