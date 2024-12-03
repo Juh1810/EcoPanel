@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <!--head section-->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +9,7 @@
     <link rel="shortcut icon" type="x-icon" href="logo.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styleSheet.css">
 
@@ -16,104 +17,316 @@
         #script {
             color: rgb(255, 255, 255);
             background-color: rgb(46, 100, 68);
+            font-size: 35px;
             font-family: 'Times New Roman', Times, serif;
         }
 
         .table {
-            width: 100%;
-            /* Make table responsive */
-            margin: 20px 0;
-            /* Add some margin for spacing */
+            border-collapse: collapse;
+            /* Remove gaps between borders */
+            table-layout: fixed;
+            /* Ensures cells respect defined width */
+            width: 830px;
+            /* Limit table width to 500px */
+            margin: 0 auto;
+            /* Center the table horizontally */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Soft shadow for depth */
+        }
 
+        #bar-text {
+            color: rgb(255, 248, 248);
+        }
+
+        .table th {
+            background-color: rgb(255, 255, 255);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
         }
 
         .td-text {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 35px;
             color: rgb(14, 100, 60);
             padding: 10px;
             font-family: 'Times New Roman', Times, serif;
         }
+
+        .mySlides {
+            display: block;
+            margin: 0 auto;
+            width: 350px;
+            height: 280;
+        }
+
+        #text-banner {
+            display: inline-block;
+            padding: 15px;
+            animation: moveBanner 13s linear infinite;
+            font-size: 15px;
+
+        }
+
+        #banner-container {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            background-color: rgb(132, 189, 206);
+            z-index: 999;
+        }
+
+        #cardStyle{
+            border: 1px solid #ddd;
+            border-radius: 10px; 
+            padding: 15px; 
+            box-shadow: 0 4px 8px rgb(0,0,0,0.2); 
+        }
+
+        @keyframes moveBanner {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #f9f9f9;
+            overflow:hiddeb;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .card img {
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+        }
+
+        .btn {
+            background-color: #2a6f4c;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            width: 100%;
+            text-transform: uppercase;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h3 {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 27px;
+        }
+
+        .card h4{
+            color:#2a6f4c;
+            margin-top: 15px;
+        }
     </style>
+
+
+    
 </head>
 
 <body>
+   
+    <!-- Banner -->
+    <div id="banner-container">
+        <div id="text-banner">Welcome to EcoPanel Website! Today is <span id="current-date"> </span>, and the time is
+            <span id="current-time"></span></div>
+    </div>
+
+
     <!-- Navigation bar-->
-    <nav class="navbar" id="navv">
-        <nav class="navbar navbar-default navbar-fixed-top" id="navv">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+    <nav class="navbar navbar-default navbar-fixed-top" id="navv">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-                    <div class="logo-container">
-                        <img src="logo.png" alt="Logo" class="logo">
-                        <span class="brand-name" id="title">EcoPanel</span>
-                    </div>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav" id="navUl">
-                        <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
-                        <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
-                        <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
-                        <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
-                        <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
-                        <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
-                        <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
-                    </ul>
+                <div class="logo-container">
+                    <img src="logo.png" alt="Logo" class="logo">
+                    <span class="brand-name" id="title">EcoPanel</span>
                 </div>
             </div>
-        </nav>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav" id="navUl">
+                    <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+                    <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
+                    <li><a href="billGeneration.html" style="color: rgb(255, 248, 248);">bill</a></li>
+                    <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
+                    <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+                    <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
+                    <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
+                    <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+                    <li><a href="Questionnaire.html" style="color: rgb(255, 248, 248);">Questionnaire</a></li>
+                    <li><a href="funpage.html" style="color: rgb(255, 248, 248);">fun</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-        <div class="carousel-inner">
 
-            <img src="solar.jpg" alt="Image" style="opacity: 0.6; width:100%;" height="360px">
 
-            <div class="carousel-inner centered-text">
-                <p>EcoPanel</p>
+    <div class="carousel-inner">
+
+        <img src="solar.jpg" alt="Image" style="opacity: 0.6; width:100%;" height="360px">
+
+        <div class="carousel-inner centered-text">
+            <p>EcoPanel</p>
+        </div>
+    </div>
+   
+    <!--Photo gallery-->
+    <div class="container text-center">
+        <h3 id="script">Your Path to Green Energy</h3><br>
+        <table class="table table-bordered text-center" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                    <th><img class="mySlides" src="pic1.jpg" style="width: 800px; height: 400px; "
+                            alt="Clean Energy Source">
+                        <img class="mySlides" src="pic2.jpg" style="width: 800px; height: 400px; "
+                            alt="Renewable Energy Source">
+                        <img class="mySlides" src="pic3.jpg" style="width: 800px; height: 400px; "
+                            alt="Economical Solution">
+                        <img class="mySlides" src="pic4.jpg" style="width: 800px; height: 400px; "
+                            alt="Technology Development">
+                    </th>
+                </tr>
+            </thead>
+            <tbody><!--width: 350px; height: 280px-->
+                <tr>
+                    <td class="td-text">
+                        <p class="mySlidesText">Clean</p>
+                        <p class="mySlidesText">Renewable</p>
+                        <p class="mySlidesText">Economical</p>
+                        <p class="mySlidesText">Technology Development</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+  
+
+
+    <!--Cards with links to pages-->
+    <div class = "container text-center" style = "margin-top: 50px">
+
+        <h2 id = "script">Explore Our New Features</h2>
+        <div class = "row" style = "margin-top: 30px;">
+
+            <!--Questionnaire-->
+            <div class = "col-md-4">
+                <div class = "card" style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">  
+                    <img src = "questionnair.jpg" alt = "Questionnair" Style = "width: 100%; border-radius: 10px;">
+                    <h4>Questionnair</h4>
+                    <p>Answer questions to improve your understanding and learn more about EcoPanel features!</p>
+                    <a href="Questionnaire.html" class = "btn" style = "width: 100%;">Answer the Questionnaire</a>
+                </div>
             </div>
 
+            <!--Calculate-->
+            <div class = "col-md-4">
+                <div class = "card" 
+                style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                    <img src = "calculate.jpg" alt = "Calculate" Style = "width: 100%; border-radius: 10px;">
+                    <h4>Calculate</h4>
+                    <p>Perform bill calculation efficiently and quickly!</p>
+                    <a href="billGeneration.html" class = "btn" style = "width: 100%;">Calculate</a>
+                </div>
+            </div>
 
+            <!--Fun-->
+            <div class = "col-md-4">
+                <div class = "card"
+                style="border: 1px solid #ddd; border-radius: 10px; padding: 15px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                    <img src = "fun.png" alt = "fun" Style = "width: 100%; border-radius: 10px;">
+                    <h4>Fun</h4>
+                    <p> Explore green Energy concepts while taking fun and interactive activities!</p>
+                    <a href="funpage.html" class = "btn " style = "width: 100%;">Have Fun!</a>
+                </div>
+            </div>
         </div>
+    </div>
+
+    
+    <br /><br /><br /><br />
+
+    <!--Footer-->
+    <footer class=" text-center">
+        <p>
+            <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon"
+                style="height: 40px; width: 40px;"></a>
+            <a href="mailto:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon"
+                    style="height: 40px; width: 40px;"></a>
+        </p>
+    </footer>
+
+    <script>
+        var index = 0;
+        carousel();
         
-        <div class="container text-center">
-            <h3 id="script">Your Path to Green Energy</h3><br>
-            <table class="table table-bordered text-center" cellspacing="0" cellpadding="5">
-                <thead>
-                    <tr>
-                        <th><img src="pic1.jpg" style="width: 250px; height: 180px;" alt="Clean Energy Source"></th>
-                        <th><img src="pic2.jpg" style="width: 250px; height: 180px;" alt="Renewable Energy Source"></th>
-                        <th><img src="pic3.jpg" style="width: 250px; height: 180px;" alt="Economical Solution"></th>
-                        <th><img src="pic4.jpg" style="width: 250px; height: 180px;" alt="Technology Development"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="td-text">Clean</td>
-                        <td class="td-text">Renewable</td>
-                        <td class="td-text">Economical</td>
-                        <td class="td-text">Technology Development</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        </div>
-        <br/><br/><br/><br/>
-        <!--Footer-->
-        <div class="footer">
-            <footer class="text-center">
-                <p>
-                    <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon"
-                            style="height: 40px; width: 40px;"></a>
-                    <a href="malito:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon"
-                            style="height: 40px; width: 40px;"></a>
-                </p>
-            </footer>
-        </div>
+        function carousel() {
+            var i;
+            var image = document.getElementsByClassName("mySlides");
+            var text = document.getElementsByClassName("mySlidesText");
+            // Show date and image
+            for (i = 0; i < image.length; i++) {
+                image[i].style.display = "none";
+                text[i].style.display = "none";
+            }
+            index++;
+            if (index > image.length) {
+                index = 1
+            }
+    
+            image[index - 1].style.display = "block";
+            text[index - 1].style.display = "block";
+            setTimeout(carousel, 3000);
+        }
+    
+        // Store current time and date
+        const currentTimeObj = document.getElementById('current-time');
+        const currentDateObj = document.getElementById('current-date');
+    
+        // Update date and time every second
+        setInterval(() => {
+            const dateTime = new Date();
+            const date = dateTime.toLocaleDateString();
+            const time = dateTime.toLocaleTimeString();
+    
+            currentTimeObj.textContent = time;
+            currentDateObj.textContent = date;
+    
+        }, 1000);
+
+        function tableDynamic(){
+            
+        }
+        
+    </script>
+
+
 </body>
 
 </html>
