@@ -1,4 +1,5 @@
 <html>
+
 <head>
   <title>EcoPanel | Bill Generation</title>
   <link rel="shortcut icon" type="x-icon" href="logo.png">
@@ -9,202 +10,359 @@
 
   <style>
     body {
-        font-family: Arial, sans-serif;
-        /*padding-top: 70px;*/
+      background-color: #f9faf4;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+
+    .billInfo {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
     }
 
-    .container {
-        margin-top: 20px;
+    .billInfo h2 {
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: #333333;
     }
 
-    .bill-container {
-        border: 1px solid #ccc;
-        padding: 20px;
-        border-radius: 8px;
-        background-color: #f9f9f9;
+    .billInfo label {
+      display: block;
+      font-size: 1em;
+      margin: 10px 0 5px;
+      color: #666666;
     }
 
-    .input-group {
-        margin-bottom: 15px;
+    .billInfo input {
+      width: 90%;
+      max-width: 400px;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
     }
 
-    #result {
-        margin-top: 20px;
-        font-size: 18px;
-        font-weight: bold;
-        color: darkgreen;
-    }
-    table {
-            width: 100%;
-            margin-top: 20px;
-        }
-
-        th, td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .total-row {
-            font-weight: bold;
-        }
-</style>
-<script>
-// Function to calculate and display the bill
-function generateBill() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const billTableBody = document.getElementById('billTableBody');
-    let total = 0;
-
-    // Clear previous table rows
-    billTableBody.innerHTML = '';
-
-    // Populate table rows
-    cart.forEach(item => {
-        const subtotal = item.price * item.quantity;
-        total += subtotal;
-
-        const row = `
-            <tr>
-                <td>${item.name}</td>
-                <td>${item.quantity}</td>
-                <td>$${item.price}</td>
-                <td>$${subtotal}</td>
-            </tr>
-        `;
-        billTableBody.innerHTML += row;
-    });
-
-    // Apply discount if total > $500
-    let discount = 0;
-    if (total > 500) {
-        discount = total * 0.25;
+    .billInfo button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin-top: 10px;
+      font-size: 1em;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    const finalTotal = total - discount;
+    .billInfo button:hover {
+      background-color: #45a049;
+    }
 
-    // Update total and discount
-    document.getElementById('total').innerText = `$${total}`;
-    document.getElementById('discount').innerText = `$${discount}`;
-    document.getElementById('finalTotal').innerText = `$${finalTotal}`;
-}
-</script>
+    #bill-table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 600px;
+      text-align: center;
+    }
 
+    #bill-table th,
+    #bill-table td {
+      border: 1px solid #cccccc;
+      padding: 10px;
+    }
+
+    #bill-table th {
+      background-color: #f2f2f2;
+      color: #333333;
+    }
+
+    .summary-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .summary-section p {
+      font-size: 1.2em;
+      color: #333333;
+    }
+
+    .summary-section span {
+      font-weight: bold;
+    }
+
+  </style>
 </head>
 
 <body>
 
-    <!--Navigation bar Section-->
-  
-    <nav class="navbar" id="navv">
-      <nav class="navbar navbar-default navbar-fixed-top" id="navv">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-  
-            <div class="logo-container">
-              <img src="logo.png" alt="Logo" class="logo">
-              <span class="brand-name" id="title">EcoPanel</span>
-            </div>
-          </div>
-          <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav" id="navUl">
-              <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
-              <li><a href="shop.html" style="color: rgb(255, 248, 248);">Shop</a></li>
-              <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
-              <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
-              <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
-              <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
-              <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
-            </ul>
+  <!--Navigation bar Section-->
+
+  <nav class="navbar" id="navv">
+    <nav class="navbar navbar-default navbar-fixed-top" id="navv">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+            <span class="brand-name" id="title">EcoPanel</span>
           </div>
         </div>
-      </nav>
-  
-  
-      <div class="highlighted-section">
-        <div class="pageName">
-          <p>Bill Generation</p><br />
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav" id="navUl">
+            <li><a href="index.html" style="color: rgb(255, 248, 248);">Home</a></li>
+            <li><a href="shop.php" style="color: rgb(255, 248, 248);">Shop</a></li>
+            <li><a href="billGeneration.html" style="color: rgb(255, 248, 248);">bill</a></li>
+            <li><a href="contactUs.html" style="color: rgb(255, 248, 248);">Contact Us</a></li>
+            <li><a href="aboutUs.html" style="color: rgb(255, 248, 248);">About Us</a></li>
+            <li><a href="count.html" style="color: rgb(255, 248, 248);">Count</a></li>
+            <li><a href="guide.html" style="color: rgb(255, 248, 248);">Guide</a></li>
+            <li><a href="review.html" style="color: rgb(255, 248, 248);">Review</a></li>
+            <li><a href="Questionnaire.html" style="color: rgb(255, 248, 248);">Questionnaire</a></li>
+            <li><a href="funpage.html" style="color: rgb(255, 248, 248);">fun</a></li>
+            <li><a href="search.php" style="color: rgb(255, 248, 248);">Search</a></li>
+            <li><a href="delete.php" style="color: rgb(255, 248, 248);">Delete</a></li>
+            <li><a href="insert.php" style="color: rgb(255, 248, 248);">Insert</a></li>
+          </ul>
         </div>
       </div>
-  
-      <!-- page content -->
-          
-          <div class="bill-container">
-              <form id="billForm">
-                  <!-- Take the needed information from the user -->
-                  <div class="input-group">
-                      <label for="customerName">Name:</label>
-                      <input type="name" id="customerName" class="form-control" placeholder="Enter your name:" required>
-                  </div>
-  
-                  <div class="input-group">
-                      <label for="customerAge">Customer Age:</label>
-                      <input type="number" id="customerAge" class="form-control" placeholder="Enter customer age" required>
-                  </div>
-  
-                  
-                  <div class="input-group">
-                      <label for="itemQuantity">Quantity:</label>
-                      <input type="number" id="itemQuantity" class="form-control" placeholder="Enter quantity" required>
-                  </div>
-                  
-                  <button type="button" class="btn btn-primary" onclick="calculateBill()">Calculate Bill</button>
-              </form>
-  
-              <!-- Bill generation -->
-              <div class="container">
-                  <h2>Generated Bill</h2>
-                  <table id="billTable" class="table table-striped">
-                      <thead>
-                          <tr>
-                              <th>Item Name</th>
-                              <th>Price</th>
-                              <th>Quantity</th>
-                              <th>Subtotal</th>
-                          </tr>
-                      </thead>
-                      <tbody></tbody>
-                  </table>
-                  <p id="totalCost"></p>
-              </div>
-          <!-- ----------------------------------------------------------------->
-             
-          <div onload="generateBill()">
-              <div class="bill-container">
-                  <h2>Bill Summary</h2>
-                  <table class="bill-table">
-                      <thead>
-                          <tr>
-                              <th>Product</th>
-                              <th>Quantity</th>
-                              <th>Price</th>
-                              <th>Subtotal</th>
-                          </tr>
-                      </thead>
-                      <tbody id="billTableBody"></tbody>
-                  </table>
-                  <p>Total: <span id="total"></span></p>
-                  <p>Discount: <span id="discount"></span></p>
-                  <p>Final Total: <span id="finalTotal"></span></p>
-              </div>
-  
-  
-  <br/>
-  <br/>
-  <br/>
-  <br/>
+    </nav>
+  </nav>
+
+
+    <div class="highlighted-section">
+      <div class="pageName">
+        <p>Bill Generation</p><br />
+      </div>
+    </div>
+
+
+    <!-- collect needed info  -->
+    <div class="billInfo">
+      <h2>Enter the requirmnets to generate your bill</h2>
+
+      <label for="customerName">Name:</label><br>
+      <input type="name" id="customerName" placeholder="Enter your name:" required><br>
+
+      <label for="customer-age">Customer Age:</label><br>
+      <input type="number" id="customer-age" placeholder="Enter customer age" /><br>
+
+      <h2>Product Information</h2>
+      <label for="product-name">Product Name:</label><br>
+      <input type="text" id="product-name" placeholder="Enter product name" />
+      <br />
+      <label for="quantity">Quantity:</label><br>
+      <input type="number" id="quantity" placeholder="Enter quantity" /><br>
+      <br />
+      <button onclick="addToBill()">Add to Bill</button>
+
+      <h2>Bill Products</h2>
+      <h5>enjoy 20% discount if you are older than 50 years old and 15% discount when you purchase over $300 </h5>
+      <table id="bill-table" border="1">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price (each)</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody id="billTable">
+          <!-- Rows will be dynamically added -->
+        </tbody>
+      </table>
+    
+      <h2>Summary</h2>
+      <p>Total Amount: <span id="total-amount">$0.00</span></p>
+      <p>Discount: <span id="discount">$0.00</span></p>
+      <p>Final Total: <span id="final-total">$0.00</span></p>
+      <button type="button" onclick="calculateTotalBill()">Calculate Bill</button>
+    </div>
+
+
+    <!-- JavaScript Part -->
+    <script>
+      // Products and Prices
+      const productCatalog = {
+        'Monocrystalline 330W': 335,
+        'Polycrystalline 330W': 363,
+        'Monocrystalline 400W': 550,
+        'Polycrystalline 400W': 380,
+        'Solar Panel Holder': 30,
+        'Solar Charge 30000mAh': 65,
+        'Solar Charging Surveillance Camera': 95,
+        'Solar Powered Light Tout': 40,
+      };
+
+      let billItems = []; // Array to store all items in the bill
+
+      function addToBill() {
+        const productName = document.getElementById('product-name').value.trim();
+        const quantity = parseInt(document.getElementById('quantity').value);
+
+        if (!productName || isNaN(quantity) || quantity <= 0) {
+          alert("Please enter a valid product and quantity.");
+          return;
+        }
+
+        if (!productCatalog[productName]) {
+          alert("Product not found. Please check the name.");
+          return;
+        }
+
+        // Find product price and calculate total price for the quantity
+        const price = productCatalog[productName];
+        const totalPrice = price * quantity;
+
+        // Add to bill items array
+        billItems.push({
+          name: productName,
+          price,
+          quantity,
+          totalPrice,
+        });
+
+        // Clear input fields
+        document.getElementById('product-name').value = '';
+        document.getElementById('quantity').value = '';
+
+        // Update bill table
+        updateBillTable();
+      }
+
+      //-----------------------------------------------------------------------------------------------------
+
+      // Function to update the bill table
+      function updateBillTable() {
+        const tableBody = document.querySelector('#bill-table tbody');
+        tableBody.innerHTML = ''; // Clear existing rows
+
+        billItems.forEach((item, index) => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+                                <td>${index + 1}</td>
+                                <td>${item.name}</td>
+                                <td>${item.quantity}</td>
+                                <td>$${item.price.toFixed(2)}</td>
+                                <td>$${item.totalPrice.toFixed(2)}</td>
+                            `;
+          tableBody.appendChild(row);
+        });
+      }
+
+
+      //------------------------------------------------------------------------------------------------------
+      // calculate bill function  
+      function calculateTotalBill() {
+        const customerAge = parseInt(document.getElementById('customer-age').value);
+        if (isNaN(customerAge) || customerAge <= 0) {
+          alert("Please enter a valid customer age.");
+          return;
+        }
+
+        const total = billItems.reduce((sum, item) => sum + item.totalPrice, 0);
+
+
+        // Apply discounts
+        let discount = 0;
+        if (total > 300 && customerAge > 50) {
+          discount = total * 0.20; // 20% discount for age > 50 and total > $300
+        } else if (total > 300) {
+          discount = total * 0.15; // 15% discount for total > $300
+        } else if (customerAge > 50) {
+          discount = total * 0.20; // 20% discount for age > 50
+        }
+
+        const finalTotal = total - discount;
+
+        // Update results on the page
+        document.getElementById('total-amount').textContent = `$${total.toFixed(2)}`;
+        document.getElementById('discount').textContent = `$${discount.toFixed(2)}`;
+        document.getElementById('final-total').textContent = `$${finalTotal.toFixed(2)}`;
+      }
+
+      // ---------------------------------------------------------------------------------------------------------
+
+      // // Function to display the bill in the table
+      function displayBill(customerAge = 0) {
+        const tableBody = document.querySelector('#bill-table tbody');
+        const totalBillElement = document.getElementById('total-bill');
+        const discountElement = document.getElementById('discount-amount');
+        const finalTotalElement = document.getElementById('final-total');
+        tableBody.innerHTML = ''; // Clear previous content
+
+        // Display bill items
+        billItems.forEach(item => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+                            <td>${item.name}</td>
+                            <td>$${item.price}</td>
+                            <td>${item.quantity}</td>
+                            <td>$${item.totalPrice.toFixed(2)}</td>
+                        `;
+          tableBody.appendChild(row);
+        });
+
+        // Calculate total bill
+        const total = calculateTotalBill();
+        const discount = applyDiscount(total, customerAge);
+        const finalTotal = total - discount;
+
+        // Update displayed values
+        totalBillElement.textContent = total.toFixed(2);
+        discountElement.textContent = discount.toFixed(2);
+        finalTotalElement.textContent = finalTotal.toFixed(2);
+      }
+
+      //---------------------------------------------------------------------------------------------------
+      //function to applay discount if certain cases 
+
+      function applyDiscount(total, customerAge) {
+        let discount = 0;
+
+        if (total > 300 && customerAge > 50) {
+          // Apply the higher discount of 20% if both conditions are met
+          discount = total * 0.20;
+        } else if (total > 300) {
+          // Apply 15% discount for total price above $300
+          discount = total * 0.15;
+        } else if (customerAge > 50) {
+          // Apply 20% discount for customers above age 50
+          discount = total * 0.20;
+        }
+
+        return discount;
+      }
+
+    </script>
+
+
+
+
+    <br />
+    <br />
+    <br />
+    <br />
     <!--Footer Section-->
     <div class="footer">
       <footer class="container-fluid text-center">
         <p>
           <a href="https://github.com/Juh1810/EcoPanel.git"><img src="gitIcon.png" alt="github icon"
               style="height: 40px; width: 40px;"></a>
-          <a href="mailto:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon"
+          <a href="malito:ecopanel.web@gmail.com"><img src="emailIcon.png" alt="email icon"
               style="height: 40px; width: 40px;"></a>
         </p>
       </footer>
